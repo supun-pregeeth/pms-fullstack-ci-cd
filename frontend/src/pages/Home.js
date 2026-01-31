@@ -83,7 +83,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-inner">
           <h1>Ruhuna ProjectHUB</h1>
-          <p>
+          <p className="container hero-inner1">
             A collaborative platform for students to showcase projects, learn from mentors, and build the future.
           </p>
 
