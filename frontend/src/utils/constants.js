@@ -1,0 +1,9 @@
+export const ROLES = {
+  STUDENT: "STUDENT",
+  MENTOR: "MENTOR"
+};
+
+export const PROJECT_STATUS = {
+  IN_PROGRESS: "IN_PROGRESS",
+  COMPLETED: "COMPLETED"
+};

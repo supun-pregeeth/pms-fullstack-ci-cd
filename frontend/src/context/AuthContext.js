@@ -1,57 +1,58 @@
-import React, { createContext, useEffect, useMemo, useState } from "react";
-import * as authService from "../services/authService";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { getToken, getUser, removeToken, removeUser, setToken, setUser } from "../utils/storage";
+import authService from "../services/authService";
 
-export const AuthContext = createContext(null);
+const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null); // {id,name,email,role}
   const [loading, setLoading] = useState(true);
+  const [token, setTokenState] = useState(getToken());
+  const [user, setUserState] = useState(getUser());
 
-  const isLoggedIn = !!user;
+  const isAuthenticated = !!token;
 
   useEffect(() => {
-    const bootstrap = async () => {
+    // If token exists but user missing, try fetch /me
+    async function hydrate() {
       try {
-        const token = localStorage.getItem("token");
-        if (!token) return;
-        const me = await authService.me();
-        setUser(me.data);
+        if (token && !user) {
+          const me = await authService.me();
+          setUserState(me);
+          setUser(me);
+        }
       } catch (e) {
-        localStorage.removeItem("token");
-        setUser(null);
+        // invalid token
+        logout();
       } finally {
         setLoading(false);
       }
-    };
-    bootstrap();
+    }
+    hydrate();
+    // eslint-disable-next-line
   }, []);
 
-  const login = async (email, password) => {
-    const res = await authService.login({ email, password });
-    localStorage.setItem("token", res.data.token);
-    const me = await authService.me();
-    setUser(me.data);
-    return me.data;
-  };
+  function login({ token: jwt, user: u }) {
+    setTokenState(jwt);
+    setUserState(u);
+    setToken(jwt);
+    setUser(u);
+  }
 
-  const register = async (payload) => {
-    const res = await authService.register(payload);
-    localStorage.setItem("token", res.data.token);
-    const me = await authService.me();
-    setUser(me.data);
-    return me.data;
-  };
-
-  const logout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
-    window.location.href = "/login";
-  };
+  function logout() {
+    setTokenState(null);
+    setUserState(null);
+    removeToken();
+    removeUser();
+  }
 
   const value = useMemo(
-    () => ({ user, isLoggedIn, loading, login, register, logout }),
-    [user, isLoggedIn, loading]
+    () => ({ loading, user, token, isAuthenticated, login, logout }),
+    [loading, user, token, isAuthenticated]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  return useContext(AuthContext);
 }

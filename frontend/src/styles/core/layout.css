@@ -1,0 +1,10 @@
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.appShell { min-height: 100vh; display: flex; flex-direction: column; }
+.appMain { flex: 1; }
+.page { padding: 30px 0 70px; }
+.pageTitle { margin: 0 0 10px; font-size: 28px; letter-spacing: -0.02em; }
+.pageText { margin: 0; color: var(--muted); line-height: 1.6; }

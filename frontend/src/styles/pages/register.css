@@ -1,0 +1,11 @@
+.authWrap { padding: 44px 0 70px; display: flex; justify-content: center; }
+.authCard {
+  width: min(460px, 100%);
+  border: 1px solid rgba(17,24,39,0.10);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.06);
+  padding: 18px;
+}
+.authTitle { margin: 0; font-size: 22px; font-weight: 900; letter-spacing: -0.02em; }
+.authForm { margin-top: 10px; display: grid; gap: 10px; }

@@ -1,0 +1,48 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+ */
+
+/* core */
+@import "./core/variables.css";
+@import "./core/global.css";
+@import "./core/layout.css";
+@import "./core/utilities.css";
+@import "./core/buttons.css";
+@import "./core/forms.css";
+
+/* components */
+@import "./components/common/navbar.css";
+@import "./components/common/footer.css";
+@import "./components/common/toast.css";
+
+/* pages */
+@import "./pages/home.css";
+@import "./pages/login.css";
+@import "./pages/register.css";
+@import "./pages/profile.css";
+@import "./pages/not-found.css";
+@import "./pages/projects.css";
+@import "./pages/project-details.css";
+@import "./pages/qa.css";
+@import "./pages/resources.css";
+@import "./pages/showcase.css";
+@import "./pages/mentor-dashboard.css";
+
+@import "./core/badges.css";
+@import "./components/project/project-filters.css";
+@import "./components/project/project-card.css";
+@import "./components/common/pagination.css";
+@import "./pages/projects.css";
+
+@import "./components/common/card.css";
