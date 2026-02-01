@@ -1,0 +1,49 @@
+.uiCard {
+  border: 1px solid rgba(17,24,39,0.10);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.05);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uiCard__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uiCard__meta {
+  font-size: 12px;
+  color: rgba(17,24,39,0.55);
+  font-weight: 800;
+}
+
+.uiCard__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.uiCard__desc {
+  margin: 0;
+  color: rgba(17,24,39,0.65);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.uiCard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.uiCard__actions {
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

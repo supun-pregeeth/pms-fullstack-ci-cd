@@ -1,0 +1,55 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(17,24,39,0.08);
+}
+
+.navbar__inner {
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.navbar__logoDot {
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.navbar__link {
+  font-size: 14px;
+  color: rgba(17,24,39,0.70);
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.navbar__link:hover { background: rgba(17,24,39,0.04); }
+.navbar__link.active { color: var(--text); font-weight: 800; }
+
+.navbar__link--pill {
+  border: 1px solid rgba(17,24,39,0.10);
+  background: rgba(255,255,255,0.75);
+}
+
+.navbar__auth { display: flex; gap: 10px; }
+
+@media (max-width: 900px) {
+  .navbar__links { display: none; } /* later you can add mobile menu */
+}
